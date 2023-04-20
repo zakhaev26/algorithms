@@ -1,0 +1,2 @@
+# ignore all the .exe files in the ADT folder
+ADT/*.exe
