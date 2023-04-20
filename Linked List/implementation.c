@@ -6,32 +6,27 @@ struct node {
 }typedef node;
 
 int main(){
+    node* head = NULL; // initialize the head pointer to NULL
 
-// HEAD FILE:
-node *head;
-head=NULL;
+    // create and insert the first node
+    node* first = (node*)malloc(sizeof(node));
+    first->data = 1;
+    first->next = NULL;
+    head = first; // set head to point to the first node
 
-node *first = (node*)malloc(sizeof(node));
+    // create and insert the second node
+    node* second = (node*)malloc(sizeof(node));
+    second->data = 2;
+    second->next = NULL;
+    first->next = second; // link the first node to the second node
 
-// (*first).data=2;
-// (*first).link=NULL;
-// head = first;
+    // create and insert the third node
+    node* third = (node*)malloc(sizeof(node));
+    third->data = 3;
+    third->next = NULL;
+    second->next = third; // link the second node to the third node
 
-// node *second = (node*)malloc(sizeof(node));
 
-// (*second).data=2;
-// (*second).link=NULL;
-// (*first).link = second;
-
-// else do like this:
-first->data=1;
-first->next=NULL;
-head=first;
-
-node *second=(node*)malloc(sizeof(node));
-second->data=2;
-second->next=NULL;
-first->next = second;
 
 return 0;
 }
