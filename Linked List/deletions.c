@@ -34,14 +34,16 @@ node *deleteNodeInBetween(node *head, int index)
     {
         p = p->next;
     }
+    node *q = p->next;
+
     p->next = p->next->next;
-    free(p->next); // doubt:causing segmentation fault.
+    free(q); // doubt:causing segmentation fault.ans:you have already assigned p->next smthng and now you are freeing it-doesnt make sense!
     return head;
 
-    //      working code:
-    // node* q=p->next;
-    // p->next = q->next;
-    // free(q);//doubt:causing segmentation fault.
+    // working code:
+    //  node* q=p->next;
+    //  p->next = q->next;
+    //  free(q);//doubt:causing segmentation fault.
 }
 
 node *deleteNodeAtEnd(node *head)
@@ -85,15 +87,15 @@ int main()
 
     // --------------------------------In Between------------------------------------------------------------
 
-    // int pos;
-    // printf("Enter the pos after which you want to delete node:");
-    // scanf("%d", &pos);
-    // deleteNodeInBetween(head, pos);
-    // TraverseLinkedList(head);
+    int pos;
+    printf("Enter the pos after which you want to delete node:");
+    scanf("%d", &pos);
+    deleteNodeInBetween(head, pos);
+    TraverseLinkedList(head);
 
     // --------------------------------At end------------------------------------------------------------
 
-    head = deleteNodeAtEnd(head);
-    TraverseLinkedList(head);
+    // head = deleteNodeAtEnd(head);
+    // TraverseLinkedList(head);
     return 0;
 }

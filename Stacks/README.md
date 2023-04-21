@@ -8,11 +8,7 @@
 - isFull(stack)
 - pop(stack,x)
 - peek(stack,num)
-
-
-
-
-
+...
 # Applications:
 
 - Infix to Postfix/Prefix
@@ -22,3 +18,5 @@
 - Memory Management
 - Balancing of parantheses
 - Undo and Redo (pushed to a temp stack and then reused.)
+
+
