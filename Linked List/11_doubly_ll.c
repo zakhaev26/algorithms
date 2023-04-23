@@ -1,39 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 struct node
 {
     int data;
     struct node *next;
+    struct node *prev;
 } typedef node;
 
-void traverseLinkedList(const node *ptr)
+void TraverseLL(node *ptr)
 {
-    while ((ptr) != NULL)
+    while (ptr != NULL)
     {
         printf("Element:%d\n", ptr->data);
         ptr = ptr->next;
     }
 }
 
-node *ReverseLinkedList(node *head)
+void reversePrintDLL(node *head)
 {
     node *p = head;
-    node *prev;
-    node *current;
-    node *next;
-
-    current = p;
-    prev = NULL;
-
-    while (current != ((void*)0))
+    while (p->next != NULL)
     {
-        next = current->next;
-        current->next = prev;
-        prev = current;
-        current = next;
+        p = p->next;
+        printf("looping..\n");
     }
-    return prev;
+    while (p != NULL)
+    {
+        printf("Element:%d\n", p->data);
+        p = p->prev;
+    }
 }
 
 int main()
@@ -46,19 +41,21 @@ int main()
 
     head->data = 2;
     head->next = second;
+    head->prev = NULL;
 
     second->data = 3;
     second->next = third;
+    second->prev = head;
 
     third->data = 4;
     third->next = fourth;
+    third->prev = second;
 
     fourth->data = 5;
-    fourth->next = NULL; // terminated.alloc(sizeof(node));
-    traverseLinkedList(head);
-    printf("---------------------\n");
-    head = ReverseLinkedList(head);
-    traverseLinkedList(head);
+    fourth->next = NULL;
+    fourth->prev = third;
 
+    TraverseLL(head);
+    reversePrintDLL(head);
     return 0;
 }
