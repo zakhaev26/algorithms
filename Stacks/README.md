@@ -2,7 +2,7 @@
 - Linear Data Structure
 
 
-6 functions are usually associated with Stacks:
+# 6 functions are usually associated with Stacks:
 - create(stack)
 - isEmpty(stack)
 - isFull(stack)
