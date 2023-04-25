@@ -22,16 +22,18 @@ int main()
         for (int j = 0; j <= 2; j++)
         {
             printf("(%d,%d)th element of matrix 2:", i + 1, j + 1);
-            scanf("%d", &mat1[i][j]);
+            scanf("%d", &mat2[i][j]);
+            res[i][j]=mat1[i][j]+mat2[i][j];
         }
     }
     for (int u = 0; u <= 2; u++)
     {
         for (int f = 0; f <= 2; f++)
         {
+            res[u][f]=0;
             for (int g = 0; g <= 2; g++)
             {
-                res[u][f] = mat1[u][g] * mat1[g][f];
+                res[u][f] += mat1[u][g] * mat1[g][f];
             }
         }
     }
