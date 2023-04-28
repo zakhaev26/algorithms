@@ -11,7 +11,6 @@ void push(char c)
     if (top == MAX_SIZE - 1)
     {
         printf("Stack overflow\n");
-        exit(1);
     }
     stack[++top] = c;
 }
@@ -86,16 +85,16 @@ void infix_to_postfix(char infix[], char postfix[])
     postfix[j] = '\0';
 }
 
-// ignore below
 
-// int main() {
-//   char infix[MAX_SIZE], postfix[MAX_SIZE];
-//   printf("Enter infix expression: ");
-//   fgets(infix, MAX_SIZE, stdin);
-//   infix_to_postfix(infix, postfix);
-//   printf("Postfix expression: %s\n", postfix);
-//   return 0;
-// }
+int main() {
+  char infix[MAX_SIZE], postfix[MAX_SIZE];
+  printf("Enter infix expression: ");
+  fgets(infix, MAX_SIZE, stdin);
+  infix_to_postfix(infix, postfix);
+  printf("Postfix expression: %s\n", postfix);
+  return 0;
+}
+// ignore below
 
 // #include<stdio.h>
 // #include <stdlib.h>
