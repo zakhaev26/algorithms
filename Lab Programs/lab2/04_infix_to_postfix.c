@@ -7,7 +7,7 @@ char stack[MAX_SIZE];
 int top = -1;
 
 void push(char c)
-{
+{ 
     if (top == MAX_SIZE - 1)
     {
         printf("Stack overflow\n");
