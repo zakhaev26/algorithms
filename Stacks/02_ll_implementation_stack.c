@@ -69,8 +69,8 @@ int main()
 
     fourth->data = 5;
     fourth->next = NULL; // terminated.
-// push(2);Print();
-// push(3);Print();
+push(2);Print();
+push(3);Print();
 pop();
     return 0;
 }
