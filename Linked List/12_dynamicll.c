@@ -1,12 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
-
 struct node
 {
     int data;
     struct node *next;
 } typedef node;
 
+node* headptr;
 void traverseLinkedList(const node *ptr)
 {
     while ((ptr) != NULL)//REASON:ptr le rha h woh,ptr se linked hai alag pointer
@@ -24,6 +24,14 @@ node* createNode(int data){
     temp->next=NULL;
     return temp;
 }
+node* moreDynamicCreateNode(int data){
+    node* temp=(node*)malloc(sizeof(node));
+    temp->data=data;
+    temp->next=NULL;
+    headptr=temp;
+    
+}
+
 
 
 int main(){
@@ -33,6 +41,7 @@ node* second=createNode(30);
 node* third=createNode(3);
 node* fourth=createNode(4);
 
+headptr=head;
 head->next=second;
 second->next=third;
 third->next=fourth;

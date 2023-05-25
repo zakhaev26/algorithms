@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+
 char STACK[20];
 char infix[20];
 int TOP = -1;
@@ -43,7 +44,6 @@ int calculate()
             int op1 = pop()-48;
             switch (t)
             {
-
             case '+':
                 push((char)(op1 + op2));
                 break;

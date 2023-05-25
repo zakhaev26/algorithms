@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include<stdlib.h>
 #define SIZE_MAX 10
+
 typedef struct Stack
 {
     int StackBox[SIZE_MAX];

@@ -15,6 +15,7 @@ void push(char c)
     stack[++top] = c;
 }
 
+
 char pop()
 {
     if (top == -1)
@@ -55,7 +56,6 @@ void infix_to_postfix(char infix[], char postfix[])
     {
         if (infix[i] == '(')
         {
-
             push(infix[i]);
         }
         else if (infix[i] == ')')

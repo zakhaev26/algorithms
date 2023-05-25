@@ -1,0 +1,25 @@
+void pop()
+{
+    if (TOP == -1)
+        printf("STACK UNDERFLOW!\n");
+
+    else
+    {
+        printf("ENTER POSITION OF ELEMENT WHICH YOU WANT TO REMOVE\n ");
+        scanf("%d", &P);
+        P = P - 1;
+        printf("REMOVED ELEMENT IS %d\n", STACK[P]);
+        for (i = 0; i != TOP - P; i++)
+        {
+            STACK2[i] = STACK[TOP];
+            TOP = TOP - 1;
+        }
+        i = i - 1;
+        TOP = P - 1;
+        for (int j = i; j >= 0; j--)
+        {
+            TOP = TOP + 1;
+            STACK[TOP] = STACK2[j];
+        }
+    }
+}
