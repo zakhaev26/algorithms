@@ -6,5 +6,6 @@ Lab Programs/lab1/*.exe
 Lab Programs/lab2/*.exe
 Queues/*.exe
 Linked List/Problems/*.exe
-C++ DSA/*.exe
+C++ DSA/Basics/*.exe
+C++ DSA/Sorting/*.exe
 Sorting/*.exe
