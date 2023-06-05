@@ -6,7 +6,7 @@ struct node
     struct node *next;
 } typedef node;
 
-node* headptr;
+node* headptr=NULL;
 void traverseLinkedList(const node *ptr)
 {
     while ((ptr) != NULL)//REASON:ptr le rha h woh,ptr se linked hai alag pointer
@@ -34,19 +34,57 @@ node* moreDynamicCreateNode(int data){
 
 
 
+node* createLL(){
+    int n;
+    printf("No. of elements : ");
+    scanf("%d ",&n);
+    node* headpointer=NULL;
+
+    while(n!=0){
+        int data;
+        printf("Enter data! : ");
+        scanf("%d",&data);
+        node* newNode=(node*)malloc(sizeof(node));
+        node* p=NULL;
+
+        if(headpointer==NULL){
+            headpointer=newNode;
+        }
+        else{
+            p=headpointer;
+            while(p->next!=NULL){
+                p=p->next;
+            }
+            p->next=newNode;
+        }
+
+        n--;
+    }
+    traverseLinkedList(headpointer);
+    return headpointer;
+}
+
+
+
+
+
+
 int main(){
 
-node* head=createNode(1);
-node* second=createNode(30);
-node* third=createNode(3);
-node* fourth=createNode(4);
+// node* head=createNode(1);
+// node* second=createNode(30);
+// node* third=createNode(3);
+// node* fourth=createNode(4);
 
-headptr=head;
-head->next=second;
-second->next=third;
-third->next=fourth;
+// headptr=head;
+// head->next=second;
+// second->next=third;
+// third->next=fourth;
 
-traverseLinkedList(head);
+// traverseLinkedList(head);
+
+createLL();
+
 
 return 0;
 }
