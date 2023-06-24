@@ -7,16 +7,21 @@ using namespace std;
 vector <int> FALEIA(vector <int> arr, int n , int k ){
 
     int *p1 = &arr[0];
-    int *p2 = &arr[1];
 
-    for(int i = 0; i<=n-1;i++){
+    for(int i = 0,j=0; i<=n-1;i++,j++){
 
-        if(*p1==*p2 && *p1 ==k){
-            return {i,i+1};
+        if(*p1 ==k){
+            int *p2 = p1+1;
+            
+            while(*p2==k){
+                p2++;
+                j++;
+            }
+            return {i,j};
+
         }
         else {
             p1++;
-            p2++;
         }
 
     }
@@ -26,9 +31,9 @@ vector <int> FALEIA(vector <int> arr, int n , int k ){
 
 int main(){
 
-vector<int> arr = {1,3,3,4,5,5,6,7,8,9};
+vector<int> arr = {1,3,3,3,3,3,4,5,5,6,7,8,9};
 
-vector<int> res = FALEIA(arr,10,5);
+vector<int> res = FALEIA(arr,13,3);
 
 cout<<res[0]<<"  "<<res[1];
 
