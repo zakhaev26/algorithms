@@ -29,11 +29,18 @@ vector <int> FALEIA(vector <int> arr, int n , int k ){
 
 }
 
+vector <int> FALEIA(vector <int> arr, int n , int k){
+
+    //MORE OPTIMISED SOLUTION 
+    //O{logN}
+
+}
+
 int main(){
 
 vector<int> arr = {1,3,3,3,3,3,4,5,5,6,7,8,9};
 
-vector<int> res = FALEIA(arr,13,3);
+vector<int> res = FALEIA(arr,13,10);
 
 cout<<res[0]<<"  "<<res[1];
 
