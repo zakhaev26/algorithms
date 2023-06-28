@@ -5,21 +5,15 @@ using namespace std;
 vector<int> pushZeroes(vector<int> &arr)
 {
 //0,2,3,0,9,9,8,0
-    int *p = &arr[0] ,*q =nullptr;
+    int j = 0;
+    for(int i=0;i<=arr.size()-1;i++){
 
-    while(p != &arr[arr.size()-1]){
-
-        if(*p==0){
-            if(*q!=0)
-            q = p;
-            p++;
-        }
-        else{
-            swap(*p,*q);
-            q=p;
-            p++;
+        if(arr[i]!=0){
+            swap(arr[i],arr[j]);
+            j++;
         }
     }
+
     return arr;
 }
 
