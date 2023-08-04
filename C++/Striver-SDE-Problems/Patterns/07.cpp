@@ -1,7 +1,4 @@
-#include<iostream>
-#include<vector>
-#include<cctype>
-#include<string>
+#include<bits/stdc++.h>
 using namespace std;
 int main(){
 
