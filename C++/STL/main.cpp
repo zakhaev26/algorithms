@@ -141,19 +141,51 @@ cout<<arr[0].first<<endl;
 
 
 //---------------Unordered Set----------------//
-unordered_set<int> us;
+// unordered_set<int> us;
 
-us.insert(1);
-us.insert(212);
-us.insert(22);
-us.insert(2323);
-us.insert(232);
-cout<<*(us.begin());
+// us.insert(1);
+// us.insert(212);
+// us.insert(22);
+// us.insert(2323);
+// us.insert(232);
+// cout<<*(us.begin());
 
 
 //-----------Map------------//
 
 // map<int,int> mp;
+
+// mp[0]=1;
+// mp[2]=90;
+// mp[2]=900;
+
+// cout<<mp.at(1);
+
+
+//-----------Algorithms--------------//
+
+// int a[10] = {0,5,4,3,2,1};
+// sort(a,a+5);//ascending
+// sort(a,a+5,greater<int>());
+
+// pair<int,int> mp;
+// mp.insert({1,2})
+// mp.insert({2,4});
+
+// sort(mp,mp+2);
+// for(auto it:mp){
+//     cout<<it.first;
+// }
+
+// for(auto it:a){
+//     cout<<it;
+// }
+
+string s = "1234567890";
+
+do{
+    cout<<s<<endl;
+}while(next_permutation(s.begin(),s.end()));
 
 
 
