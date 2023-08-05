@@ -2,16 +2,16 @@
 #include<vector>
 #include<cctype>
 #include<string>
-using namespace std;
+// using namespace std;
 int main(){
 
 for(int i =1;i<=5;i++){
     int z =1;
     for(int j = 0;j<i;j++){
-        cout<<z;
+        std::cout<<z;
         z+=1;
     }
-    cout<<endl;
+    std::cout<<endl;
 }
 
 
