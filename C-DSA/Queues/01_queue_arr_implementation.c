@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int Queue[10];
-int front, rear = -1;
+int front =-1, rear = -1;
 
 void Display()
 {
