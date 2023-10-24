@@ -35,5 +35,20 @@ function selection_sort(arr: number[]): number[] {
 }
 
 
+function insertion_sort(arr:number[]) :number[] {
 
-// console.log(bubble_sort([5,4,2,3,1]))
+    for(let i = 0;i<arr.length-2;i++) {
+        let j = i+1;
+        while(j>= 0 && arr[j]<arr[i]) {
+            let temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+            j--;
+        }
+    }
+    return arr;
+}
+
+console.log(insertion_sort([5,4,2,3,1]))
+
+

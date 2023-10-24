@@ -16,4 +16,30 @@ function bubble_sort(arr) {
     }
     return arr;
 }
-console.log(bubble_sort([5, 4, 2, 3, 1]));
+function selection_sort(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        var minIndex = i;
+        for (var j = i; j < arr.length; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        var temp = arr[minIndex];
+        arr[minIndex] = arr[i];
+        arr[i] = temp;
+    }
+    return arr;
+}
+function insertion_sort(arr) {
+    for (var i = 0; i < arr.length - 2; i++) {
+        var j = i + 1;
+        while (j >= 0 && arr[j] < arr[i]) {
+            var temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+            j--;
+        }
+    }
+    return arr;
+}
+console.log(insertion_sort([5, 4, 2, 3, 1]));
