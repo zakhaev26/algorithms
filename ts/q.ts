@@ -20,6 +20,7 @@ class Queue<T> {
             this.front = this.rear = {value:item} as node<T>;
             return;
         }
+
             this.rear?.next = {value:item} as node<T>
             this.length++;
     }
