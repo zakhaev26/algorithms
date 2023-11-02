@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "exception": "cpp",
+        "iterator": "cpp",
+        "xutility": "cpp"
+    }
+}

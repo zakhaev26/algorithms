@@ -1,0 +1,10 @@
+- November Targets
+  - MLH Project [30d]
+  - GCSB Backend (Atleast Do my Part + Motivate all to complete it) [2d]
+  - OSS Project announcement and maintainence [1d for me]
+  - Something for Low/No Code [abstract]
+  - DSA Cpp + TS [30d]
+  - NestJS [abstract] 
+  - Academics , Backlogs [ded] 
+  - QtDev 
+  - Git Sesh [1d]

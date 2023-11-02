@@ -32,11 +32,30 @@ void Kadanes(vector<int> &arr) {
     }
 }
 
+
+void Kn(vector<int> &arr) {
+
+    int max = 0;
+    int sum = 0;
+
+    for(int i = 0;i<arr.size();i++) {
+        sum+= arr[i];
+
+        if(sum < 0) sum = 0;
+        if(sum >= max) max = sum;
+    }
+    cout<<"max = " << max;
+}
+
+
+
+
 int main() {
 
     vector<int> arr = {1,2,3,-1,-2,-2,-2};
 
     // SubMaxSum(arr);
-    Kadanes(arr);
+    // Kadanes(arr);
+    Kn(arr);
     return 0;
 }
