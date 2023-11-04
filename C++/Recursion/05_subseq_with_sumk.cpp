@@ -2,20 +2,26 @@
 #include <chrono>
 using namespace std;
 
-void subseq(int id,vector<int> arr,vector<int> res) {
-
+void subseqsumk(int id , vector<int> arr,vector<int>res,int sum,int k) {
     if(id >= arr.size()) {
-        for(int i:res) cout<<i<<" ";
-        cout<<endl;
+        if(sum == k) {
+            for(auto i :res) {
+                cout<<i<< " ";
+            }
+            cout<<endl;
+        }
         return;
     }
 
     //include
+    sum+=arr[id];
     res.push_back(arr[id]);
-    subseq(id + 1,arr,res);
+    subseqsumk(id+1,arr,res,sum,k);
 
+    sum-=arr[id];
     res.pop_back();
-    subseq(id + 1,arr,res);
+    //exclude
+    subseqsumk(id+1,arr,res,sum,k);
 }
 
 
@@ -23,9 +29,9 @@ int main(){
 auto start = chrono::high_resolution_clock::now();
 
 
-vector<int> arr = {1,2,3,4,5,6};
-vector<int> res;
-subseq(0,arr,res);
+vector<int> arr = {1,2,1,4};
+vector<int> res ;
+subseqsumk(0,arr,res,0,2);
 
 
 

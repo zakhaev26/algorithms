@@ -2,20 +2,21 @@
 #include <chrono>
 using namespace std;
 
-void subseq(int id,vector<int> arr,vector<int> res) {
+void subseq(int id , string n, string s) {
 
-    if(id >= arr.size()) {
-        for(int i:res) cout<<i<<" ";
-        cout<<endl;
+    if(id >= n.length()) {
+        cout<<s<<endl;
         return;
     }
 
     //include
-    res.push_back(arr[id]);
-    subseq(id + 1,arr,res);
+    s.push_back(n.at(id));
+    subseq(id+1,n,s);
 
-    res.pop_back();
-    subseq(id + 1,arr,res);
+    //exclude
+    s.pop_back();
+    
+    subseq(id+1,n,s);
 }
 
 
@@ -23,9 +24,9 @@ int main(){
 auto start = chrono::high_resolution_clock::now();
 
 
-vector<int> arr = {1,2,3,4,5,6};
-vector<int> res;
-subseq(0,arr,res);
+string n = "abc";
+string s;
+subseq(0,n,s);
 
 
 
