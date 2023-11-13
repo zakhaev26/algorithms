@@ -1,0 +1,18 @@
+{
+    "C++ Boilerplate": {
+        "scope": "cpp",
+        "prefix": "boilerplate",
+        "body": [
+            "#include <iostream>",
+            "using namespace std;",
+            "",
+            "int main() {",
+			"",
+			"$2",
+			"",
+            "    return 0;",
+            "}"
+        ],
+        "description": "Basic C++ Boilerplate"
+    }
+}
