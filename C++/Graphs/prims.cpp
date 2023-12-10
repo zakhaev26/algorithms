@@ -28,8 +28,6 @@ int spanningTree(int V,vector<vector<int>> adj []) {
         }
 }
 
-
-
 int main() {
     return 0;
 }

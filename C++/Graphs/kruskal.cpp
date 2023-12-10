@@ -2,7 +2,6 @@
 #include"disjointSet.cpp"
 using namespace std;
 
-
 int spanningTree(int V,vector<vector<int>> adj[]) {
 
     vector<pair<int,pair<int,int>>> edges;
@@ -12,7 +11,7 @@ int spanningTree(int V,vector<vector<int>> adj[]) {
             int adjNode = it[0];
             int wt = it[1];
             int node = i; 
-
+        
             edges.push_back({wt,{node,adjNode}});
         }
     }

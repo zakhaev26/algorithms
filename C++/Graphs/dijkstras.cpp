@@ -8,7 +8,7 @@ void Dijsktras(int nodes,vector<pair<int,int>> adj[],int startNode) {
     distArr[startNode] = 0;
 
     q.push(make_pair(startNode,0));
-
+	
     while(!q.empty()) {
         int node = q.top().first;
         int dist = q.top().second;
