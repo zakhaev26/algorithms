@@ -7,7 +7,7 @@ int main()
 {
     int i = 1;
 	while(i) {
-    	fork(); 
+    	 fork(); 
         printf("Forked %d\n",i);
         i++;
     } 
