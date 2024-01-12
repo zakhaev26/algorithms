@@ -29,7 +29,7 @@ Node* revLL(Node* head) {
 
     Node* p = head;
     Node* q = p->next;
-    Node* r = (q != NULL) ? q->next : NULL;
+    Node* r = (q != NULL) ? q->next : portNULL;
 
     p->next = NULL;
     while (q != NULL) {
