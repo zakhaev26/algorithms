@@ -32,7 +32,7 @@ public:
 int main() {
 
     Solution * s = new Solution();
-    for (auto it : s->generateParenthesis(1)) {
+    for (auto it : s->generateParenthesis(2)) {
         cout<<it<<" ";
     }
     return 0;
