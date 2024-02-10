@@ -6,7 +6,7 @@ vector<int> NGE(vector<int> arr){
     vector<int> res(arr.size(),-1);
     st.push(make_pair(arr[0],0));
 
-    for(int i = 1 ;i<2*arr.size();i++) {
+    for(int i = 0 ;i<2*arr.size();i++) {
         while(!st.empty() && st.top().first< arr[i%arr.size()]) {
             res[st.top().second] = arr[i%arr.size()];
             st.pop();
