@@ -43,7 +43,6 @@ public:
         for (int i = 0; i < s.size(); i++)
         {
             char incomingChar = s[i];
-
             while(st.count(incomingChar) >0) {
                 st.erase(s[start]);
                 start++;

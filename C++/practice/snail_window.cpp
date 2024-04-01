@@ -15,11 +15,8 @@ void slidingWindow(string s ) {
             st.erase(s[start]);
             start++;
         }
-
         st.insert(s[i]);
     }
-
-
 }
 
 int main() {
