@@ -26,31 +26,51 @@ using namespace std;
 // 	return bfs; 
 // }
 
+// void BFS(int V,vector<int> arr[]) {
+
+// 	int visited[V] = {0};
+// 	for(auto i : visited) {
+// 		cout<<i<<" ";
+// 	}
+	
+// 	visited[0] = 1;
+// 	queue<int> q;
+// 	q.push(0);
+
+// 	while(!q.empty()) {
+
+// 		int node = q.front();
+// 		q.pop();
+// 		cout<<node<<" ";
+
+// 		for(auto it : arr[node]) {
+// 			if(!visited[it]) {
+// 				visited[it] = 1;
+// 				q.push(it);
+// 			}
+// 		}
+// 	}
+
+// }
+
 void BFS(int V,vector<int> arr[]) {
 
 	int visited[V] = {0};
-	for(auto i : visited) {
-		cout<<i<<" ";
-	}
-	
-	visited[0] = 1;
 	queue<int> q;
-	q.push(0);
-
-	while(!q.empty()) {
-
-		int node = q.front();
+	q.push(0); // assuming i have 0 as starting point;
+	visited[0] = 1;
+	
+	while(!q.empty()){ 
+		int curr = q.front();
 		q.pop();
-		cout<<node<<" ";
 
-		for(auto it : arr[node]) {
-			if(!visited[it]) {
-				visited[it] = 1;
-				q.push(it);
+		for(auto &node: arr[curr]) {
+			if(!visited[node]) {
+				visited[node] = 1;
+				q.push(node);
 			}
-		}
+ 		}
 	}
-
 }
 
 

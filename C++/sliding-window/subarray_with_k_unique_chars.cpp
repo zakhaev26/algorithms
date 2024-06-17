@@ -10,30 +10,17 @@ int sol(string arr, int k)
     while (j < arr.size())
     {
         mpp[arr[j]]++;
-        if (mpp.size() == k)
-        {
-            maxx = max(maxx, j - i + 1);
-            j++;
-        }
-        else if (mpp.size() < k)
-            j++;
-        else
-        {
-            while (mpp.size() > k && i < j)
-            {
+        
+        if(mpp.size() > k) {
+            while(mpp.size() != 3) {
                 mpp[arr[i]]--;
-                if (mpp[arr[i]] == 0)
-                {
-                    mpp.erase(arr[i]);
-                }
+                if(mpp[arr[i]] == 0) mpp.erase(arr[i]);
                 i++;
-                if (mpp.size() == k)
-                {
-                    maxx = max(maxx, j - i + 1);
-                }
             }
-            j++;
         }
+
+        maxx = max(maxx,j-i+1);
+        j++;
     }
 
     return maxx;

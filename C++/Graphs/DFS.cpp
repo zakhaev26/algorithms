@@ -1,20 +1,42 @@
-void DFS(int node ,vector<int> adj[],int vis[],vector<int> &ls) {  
 
-    if(vis[node] ==1 ) return ;
-    vis[node] =1 ;
-    ls.push_back(node);
+#include <bits/stdc++.h>
+using namespace std;
 
-    for(auto i : adj[node] )  {
-        DFS(i,adj,vis,ls);
+// void DFS(int node ,vector<int> adj[],int vis[],vector<int> &ls) {
+
+//     if(vis[node] ==1 ) return ;
+//     vis[node] =1 ;
+//     ls.push_back(node);
+
+//     for(auto i : adj[node] )  {
+//         DFS(i,adj,vis,ls);
+//     }
+//     return;
+// }
+
+// void DFS(int node,vector<int> adj[],vector<int> visited,vector<int> &ls) {
+
+//     if(visited[node] == 1) return;
+
+//     visited[node] = 1;
+//     ls.push_back(node);
+//     for(auto it : adj[node]) {
+//         DFS(it,adj,visited,ls);
+
+void DFS(int node, vector<int> adj[], vector<int> visited) {
+    
+    cout << node << endl;
+
+    for(auto &nx: adj[node]) {
+        if(!visited[nx]) {
+            visited[nx] = 1;
+            DFS(nx,adj,visited);
+        }
     }
-    return;
 }
 
-void DFS(int node,vector<int> adj[],vector<int> visited,vector<int> &ls) {
+int main()
+{
 
-    if(visited[node] == 1) return;
-
-    visited[node] = 1;
-    ls.push_back(node);
-    for(auto it : adj[node]) {
-        DFS(it,adj,visited,ls);       
+    return 0;
+}

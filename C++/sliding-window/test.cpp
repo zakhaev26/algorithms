@@ -1,22 +1,17 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+int main()
+{
 
-    map<char,int> mpp;
+    map<char, int> mpp;
+    mpp['a'] += 2;
+    mpp['x'] += 1;
+    mpp['b'] += 4;
 
-    mpp['c'] = 1; 
-    mpp['d'] = 3; 
-    mpp['e'] = 2; 
-
-    cout << mpp.size();
-
-    mpp['c']--;
-    cout<<mpp['c']<<endl;
-    mpp.erase('c');
-    cout<<mpp.size()<<endl;
-
-
-        
+    for (auto it: mpp)
+    {
+        cout << it.second << it.first << endl;
+    }
     return 0;
 }
