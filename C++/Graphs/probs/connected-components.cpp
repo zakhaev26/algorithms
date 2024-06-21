@@ -24,6 +24,10 @@ int f(vector<int> adj[], int V, int cnt = 0){
     
     int visited[V] = {0};
 
+
+
+
+  
     for (int i = 0; i < V; i++)
     {
         if (visited[i] == 0)

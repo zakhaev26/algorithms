@@ -23,7 +23,7 @@ using namespace std;
 //     for(auto it : adj[node]) {
 //         DFS(it,adj,visited,ls);
 
-void DFS(int node, vector<int> adj[], vector<int> visited) {
+extern void DFS(int node, vector<int> adj[], vector<int> visited) noexcept {
     
     cout << node << endl;
 
