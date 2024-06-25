@@ -15,11 +15,13 @@ private:
             if (!vis[node])
             {
                 // Not visited yet,
-                dfs(V, adj, node, vis, pathVis);
+                if(dfs(V, adj, node, vis, pathVis)){
+                    return true;
+                }
             }
 
             // visited and is in the same path
-            if (pathVis[node])
+            else if (pathVis[node])
             {
                 return true; // cycle exists..
             }
