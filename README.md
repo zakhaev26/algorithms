@@ -1,4 +1,4 @@
-# algori
+# algorithms
 Algorithms repo
 
 
