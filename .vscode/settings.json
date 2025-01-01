@@ -32,6 +32,8 @@
         "xhash": "cpp",
         "xiosbase": "cpp",
         "xstring": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "string": "cpp",
+        "format": "cpp"
     }
 }
