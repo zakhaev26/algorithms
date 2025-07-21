@@ -35,6 +35,7 @@
         "xtree": "cpp",
         "string": "cpp",
         "format": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "chrono": "cpp"
     }
 }
