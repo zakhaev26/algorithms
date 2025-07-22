@@ -54,29 +54,7 @@ void _dbg(const char *names, Args &&...args) {
 #endif
 
 void solve() {
-    stack<char> stk;
-    using ll = long long;
-    ll cnt = 0;
-    string s;
-    cin >> s;
-    const int N = s.size();
 
-    for (int i = 0; i < N; ++i) {
-        char ch = s[i];
-
-        if (ch == '(')
-            stk.push(ch);
-        else {
-            if (stk.empty()) {
-                cnt++;
-            } else {
-                stk.pop();
-            }
-        }
-    }
-
-    cnt += stk.size();
-    cout << cnt << "\n";
 }
 
 int main() {
@@ -86,8 +64,9 @@ int main() {
 
     int tt;
     cin >> tt;
-    while (tt--)
+    while (tt--) {
         solve();
+    }
 
 #ifdef ZAKHEV26___
     auto end = chrono::high_resolution_clock::now();

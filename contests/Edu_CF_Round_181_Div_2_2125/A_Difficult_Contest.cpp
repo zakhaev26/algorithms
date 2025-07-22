@@ -4,47 +4,62 @@
 using namespace std;
 
 #ifdef ZAKHEV26___
-template <typename T> void __print(const T &x) { cerr << x; }
-template <typename T, typename U> void __print(const pair<T, U> &x) {
+template <typename T>
+void __print(const T &x) { cerr << x; }
+template <typename T, typename U>
+void __print(const pair<T, U> &x)
+{
     cerr << '(';
     __print(x.first);
     cerr << ", ";
     __print(x.second);
     cerr << ')';
 }
-template <typename T> void __print(const vector<T> &v) {
+template <typename T>
+void __print(const vector<T> &v)
+{
     cerr << '[';
     for (size_t i = 0; i < v.size(); ++i)
         __print(v[i]), cerr << (i + 1 == v.size() ? "" : ", ");
     cerr << ']';
 }
-template <typename T> void __print(const vector<vector<T>> &v) {
+template <typename T>
+void __print(const vector<vector<T>> &v)
+{
     cerr << "[\n";
     for (auto &r : v)
         cerr << "  ", __print(r), cerr << "\n";
     cerr << "]";
 }
-template <typename T> void __print(const set<T> &s) {
+template <typename T>
+void __print(const set<T> &s)
+{
     cerr << '{';
     for (auto it = s.begin(); it != s.end(); ++it)
         __print(*it), cerr << (next(it) == s.end() ? "" : ", ");
     cerr << '}';
 }
-template <typename T> void __print(const unordered_set<T> &s) { __print(set<T>(s.begin(), s.end())); }
-template <typename K, typename V> void __print(const unordered_map<K, V> &m) {
+template <typename T>
+void __print(const unordered_set<T> &s) { __print(set<T>(s.begin(), s.end())); }
+template <typename K, typename V>
+void __print(const unordered_map<K, V> &m)
+{
     cerr << '{';
     for (auto it = m.begin(); it != m.end(); ++it)
         __print(*it), cerr << (next(it) == m.end() ? "" : ", ");
     cerr << '}';
 }
-template <typename K, typename V> void __print(const map<K, V> &m) {
+template <typename K, typename V>
+void __print(const map<K, V> &m)
+{
     cerr << '{';
     for (auto it = m.begin(); it != m.end(); ++it)
         __print(*it), cerr << (next(it) == m.end() ? "" : ", ");
     cerr << '}';
 }
 template <typename... Args>
-void _dbg(const char *names, Args &&...args) {
+void _dbg(const char *names, Args &&...args)
+{
     cerr << "[" << names << "]:", ((cerr << " ", __print(args)), ...);
     cerr << endl;
 }
@@ -53,33 +68,58 @@ void _dbg(const char *names, Args &&...args) {
 #define dbg(...)
 #endif
 
-void solve() {
-    stack<char> stk;
-    using ll = long long;
-    ll cnt = 0;
-    string s;
-    cin >> s;
-    const int N = s.size();
+void solve()
+{
+    /**
+     * 5
+    FFT
+    ABFBANTTA
+    FFTNTT
+    FFTFFTFFTNNTNNT
+    AFFTBFFNTTFTTZ
 
+    FFTNTT
+
+    F:2
+    T:3
+    N:1
+
+    FNFTTT
+
+    AFFTBFFNTTFTTZ
+    AFTFBTTFFNFTTZ
+
+    F
+
+    FTF
+
+    ABFBANTTA
+
+     */
+
+    //  AFFTBFFNTTFTTZ
+
+    string S;
+    cin >> S;
+    const int N = S.size();
+
+    int tcnt = 0;
     for (int i = 0; i < N; ++i) {
-        char ch = s[i];
-
-        if (ch == '(')
-            stk.push(ch);
-        else {
-            if (stk.empty()) {
-                cnt++;
-            } else {
-                stk.pop();
-            }
-        }
+        if (S[i] == 'T') tcnt++;
     }
 
-    cnt += stk.size();
-    cout << cnt << "\n";
+    string R;
+    R.append(tcnt,'T');
+
+    for (int i = 0; i < N; ++i) {
+        if (S[i] != 'T') R += S[i];
+    }
+
+    cout << R << "\n";
 }
 
-int main() {
+int main()
+{
 #ifdef ZAKHEV26___
     auto start = chrono::high_resolution_clock::now();
 #endif
@@ -87,7 +127,9 @@ int main() {
     int tt;
     cin >> tt;
     while (tt--)
+    {
         solve();
+    }
 
 #ifdef ZAKHEV26___
     auto end = chrono::high_resolution_clock::now();
