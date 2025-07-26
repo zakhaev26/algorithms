@@ -70,23 +70,38 @@ void _dbg(const char *names, Args &&...args)
 
 void solve()
 {
-    /*    5
-    5
+    using ll = long long;
+    ll a, b, xk, yk, xq, yq;
 
-    1 2 4 5 3
-              x
+    cin >> a >> b >> xk >> yk >> xq >> yq;
 
-    2
-    1 2
-    1
-    1
-    3
-    3 2 1
-    4
-    1 4 3 2
+    set<pair<int, int>> posn = {
+        {-a, b},
+        {+a, b},
+        {+a, -b},
+        {-a, -b},
+        {-b, a},
+        {+b, a},
+        {+b, -a},
+        {-b, -a}};
 
+    int ans = 0;
+    for (auto it = posn.begin(); it != posn.end(); it++)
+    {
+        int hx = it->first + xq;
+        int hy = it->second + yq;
 
-    */
+        // queen is under attack, is the king under attack too ?
+        int diff_x = abs(hx - xk);
+        int diff_y = abs(hy - yk);
+
+        if (posn.find({diff_x, diff_y}) != posn.end())
+        {
+            ans += 1;
+        }
+    }
+
+    cout << ans << "\n";
 }
 
 int main()

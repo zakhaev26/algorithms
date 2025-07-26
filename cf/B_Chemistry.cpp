@@ -70,23 +70,52 @@ void _dbg(const char *names, Args &&...args)
 
 void solve()
 {
-    /*    5
-    5
 
-    1 2 4 5 3
-              x
+    // ttrraakkttoorr
+    // t4
+    // r4
+    // a2
+    // k2
+    // o2
+    // x3
 
-    2
-    1 2
-    1
-    1
-    3
-    3 2 1
-    4
-    1 4 3 2
+    using ll = long long;
+    ll N, K;
+    cin >> N >> K;
 
+    string S;
+    cin >> S;
 
-    */
+    int A[26] = {0};
+
+    for (auto &X : S)
+    {
+        A[X - 'a']++;
+    }
+
+    int cnt = 0;
+    for (int i = 0; i < 26; ++i)
+    {
+        if (A[i] & 1)
+        {
+            cnt++;
+        }
+    }
+
+    if (cnt <= 1)
+    {
+        cout << "YES\n";
+        return;
+    }
+
+    if (K < cnt - 1)
+    {
+        cout << "NO\n";
+    }
+    else
+    {
+        cout << "YES\n";
+    }
 }
 
 int main()
