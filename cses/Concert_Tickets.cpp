@@ -71,51 +71,44 @@ void _dbg(const char *names, Args &&...args)
 void solve()
 {
     /*
-5
-6
-1 3 9 11 5 7
-1
-20
-3
-9 99 999
-4
-2 1 8 1
-3
-2 1 5
+5 3
+h: 5 3 7 8 5
+h: 8 7 5 5 3
+p: 4 8 3
 
-6
-
-1 3 9 11 5 7
+// 8
 
 */
+
     using ll = long long;
-    ll N;
-    cin >> N;
+    ll N, M;
+    cin >> N >> M;
+    multiset<int> mtt;
 
-    vector<ll> A(N);
-
-    for (ll i = 0; i < N; ++i)
+    for (int i = 0; i < N; ++i)
     {
-        cin >> A[i];
+        ll temp;
+        cin >> temp;
+        mtt.insert(temp);
     }
 
-    if (N == 1)
+    for (int i = 0; i < M; ++i)
     {
-        cout << "0\n";
-        return;
+        ll temp;
+        cin >> temp;
+
+        auto it = mtt.upper_bound(temp);
+        if (it == mtt.begin())
+        {   
+            cout << "-1\n";
+        }
+        else
+        {
+            --it;
+            cout << *it << "\n";
+            mtt.erase(it);
+        }
     }
-
-    ll maxi = *max_element(begin(A) + 1, end(A));
-    ll mini = *min_element(begin(A), end(A) - 1);
-
-    ll pw = LLONG_MIN;
-
-    for (ll i = 0; i < N - 1; ++i)
-    {
-        pw = max(pw, A[i] - A[i + 1]);
-    }
-
-    cout << max(max(maxi - A[0], A[N - 1] - mini), pw) << "\n";
 }
 
 int main()
@@ -124,8 +117,8 @@ int main()
     auto start = chrono::high_resolution_clock::now();
 #endif
 
-    int tt;
-    cin >> tt;
+    int tt = 1;
+    // cin >> tt;
     while (tt--)
     {
         solve();

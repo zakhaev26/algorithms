@@ -70,52 +70,50 @@ void _dbg(const char *names, Args &&...args)
 
 void solve()
 {
-    /*
-5
-6
-1 3 9 11 5 7
-1
-20
-3
-9 99 999
-4
-2 1 8 1
-3
-2 1 5
-
-6
-
-1 3 9 11 5 7
-
-*/
     using ll = long long;
-    ll N;
-    cin >> N;
+    ll N, M, K;
+    cin >> N >> M >> K;
 
-    vector<ll> A(N);
+    vector<ll> a(N), p(M);
 
-    for (ll i = 0; i < N; ++i)
+    for (auto &x : a)
+        cin >> x;
+    for (auto &x : p)
+        cin >> x;
+
+    sort(begin(a), end(a));
+    sort(begin(p), end(p));
+
+    int i = 0; // a
+    int j = 0; // p
+
+    ll cnt = 0;
+    while (i < N and j < M)
     {
-        cin >> A[i];
+        // dbg(i, j);
+        int have = a[i];
+        int need = p[j];
+
+        if (abs(have - need) <= K)
+        {
+            cnt++;
+            i++;
+            j++;
+        }
+        else
+        {
+            if (have > need)
+            {
+                j++;
+            }
+            else
+            {
+                i++;
+            }
+        }
     }
 
-    if (N == 1)
-    {
-        cout << "0\n";
-        return;
-    }
-
-    ll maxi = *max_element(begin(A) + 1, end(A));
-    ll mini = *min_element(begin(A), end(A) - 1);
-
-    ll pw = LLONG_MIN;
-
-    for (ll i = 0; i < N - 1; ++i)
-    {
-        pw = max(pw, A[i] - A[i + 1]);
-    }
-
-    cout << max(max(maxi - A[0], A[N - 1] - mini), pw) << "\n";
+    cout << cnt << "\n";
 }
 
 int main()
@@ -124,8 +122,8 @@ int main()
     auto start = chrono::high_resolution_clock::now();
 #endif
 
-    int tt;
-    cin >> tt;
+    int tt = 1;
+    // cin >> tt;
     while (tt--)
     {
         solve();

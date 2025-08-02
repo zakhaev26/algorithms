@@ -70,62 +70,47 @@ void _dbg(const char *names, Args &&...args)
 
 void solve()
 {
-    /*
-5
-6
-1 3 9 11 5 7
-1
-20
-3
-9 99 999
-4
-2 1 8 1
-3
-2 1 5
-
-6
-
-1 3 9 11 5 7
-
-*/
     using ll = long long;
     ll N;
     cin >> N;
 
-    vector<ll> A(N);
+    vector<pair<ll, ll>> v;
 
-    for (ll i = 0; i < N; ++i)
+    for (int i = 0; i < N; ++i)
     {
-        cin >> A[i];
+        ll a, b;
+        cin >> a >> b;
+        v.emplace_back(a, b);
     }
 
-    if (N == 1)
+    sort(begin(v), end(v), [](const pair<ll, ll> x, const pair<ll, ll> y)
+         { return x.second < y.second; });
+
+    int cnt = 1;
+    int endTimeLast = v[0].second;
+
+    for (ll i = 1; i < N; ++i)
     {
-        cout << "0\n";
-        return;
+        ll currStart = v[i].first;
+
+        if (currStart >= endTimeLast)
+        {
+            cnt++;
+            endTimeLast = v[i].second;
+        }
     }
 
-    ll maxi = *max_element(begin(A) + 1, end(A));
-    ll mini = *min_element(begin(A), end(A) - 1);
-
-    ll pw = LLONG_MIN;
-
-    for (ll i = 0; i < N - 1; ++i)
-    {
-        pw = max(pw, A[i] - A[i + 1]);
-    }
-
-    cout << max(max(maxi - A[0], A[N - 1] - mini), pw) << "\n";
+    cout << cnt << "\n";
 }
 
 int main()
 {
 #ifdef ZAKHAEV26___
     auto start = chrono::high_resolution_clock::now();
-#endif
+#endif  
 
-    int tt;
-    cin >> tt;
+    int tt = 1;
+    // cin >> tt;
     while (tt--)
     {
         solve();

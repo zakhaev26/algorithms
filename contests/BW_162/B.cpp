@@ -4,62 +4,47 @@
 using namespace std;
 
 #ifdef ZAKHAEV26___
-template <typename T>
-void __print(const T &x) { cerr << x; }
-template <typename T, typename U>
-void __print(const pair<T, U> &x)
-{
+template <typename T> void __print(const T &x) { cerr << x; }
+template <typename T, typename U> void __print(const pair<T, U> &x) {
     cerr << '(';
     __print(x.first);
     cerr << ", ";
     __print(x.second);
     cerr << ')';
 }
-template <typename T>
-void __print(const vector<T> &v)
-{
+template <typename T> void __print(const vector<T> &v) {
     cerr << '[';
     for (size_t i = 0; i < v.size(); ++i)
         __print(v[i]), cerr << (i + 1 == v.size() ? "" : ", ");
     cerr << ']';
 }
-template <typename T>
-void __print(const vector<vector<T>> &v)
-{
+template <typename T> void __print(const vector<vector<T>> &v) {
     cerr << "[\n";
     for (auto &r : v)
         cerr << "  ", __print(r), cerr << "\n";
     cerr << "]";
 }
-template <typename T>
-void __print(const set<T> &s)
-{
+template <typename T> void __print(const set<T> &s) {
     cerr << '{';
     for (auto it = s.begin(); it != s.end(); ++it)
         __print(*it), cerr << (next(it) == s.end() ? "" : ", ");
     cerr << '}';
 }
-template <typename T>
-void __print(const unordered_set<T> &s) { __print(set<T>(s.begin(), s.end())); }
-template <typename K, typename V>
-void __print(const unordered_map<K, V> &m)
-{
+template <typename T> void __print(const unordered_set<T> &s) { __print(set<T>(s.begin(), s.end())); }
+template <typename K, typename V> void __print(const unordered_map<K, V> &m) {
     cerr << '{';
     for (auto it = m.begin(); it != m.end(); ++it)
         __print(*it), cerr << (next(it) == m.end() ? "" : ", ");
     cerr << '}';
 }
-template <typename K, typename V>
-void __print(const map<K, V> &m)
-{
+template <typename K, typename V> void __print(const map<K, V> &m) {
     cerr << '{';
     for (auto it = m.begin(); it != m.end(); ++it)
         __print(*it), cerr << (next(it) == m.end() ? "" : ", ");
     cerr << '}';
 }
 template <typename... Args>
-void _dbg(const char *names, Args &&...args)
-{
+void _dbg(const char *names, Args &&...args) {
     cerr << "[" << names << "]:", ((cerr << " ", __print(args)), ...);
     cerr << endl;
 }
@@ -68,66 +53,57 @@ void _dbg(const char *names, Args &&...args)
 #define dbg(...)
 #endif
 
-void solve()
-{
-    /*
-5
-6
-1 3 9 11 5 7
-1
-20
-3
-9 99 999
-4
-2 1 8 1
-3
-2 1 5
+class Solution {
+public:
+    int minRemoval(vector<int>& A, int k) {
+        using ll = long long;
+        sort(begin(A),end(A));
 
-6
+        ll left = 0;
+        ll right = 0;
 
-1 3 9 11 5 7
+        ll maxi = A[0];
+        ll mini = A[0];
+        const int N = A.size();
+        ll max_valid = 1LL;
+        
+        while (right < N) {
+            maxi = A[right];
 
-*/
-    using ll = long long;
-    ll N;
-    cin >> N;
+            while (mini * k < maxi) {
+                left++;
+                mini = A[left];
+            }
 
-    vector<ll> A(N);
+            // valid window
+            max_valid = max(max_valid,right-left+1);
+            right++;
+        }
 
-    for (ll i = 0; i < N; ++i)
-    {
-        cin >> A[i];
+        return N-max_valid;
     }
+};
 
-    if (N == 1)
-    {
-        cout << "0\n";
-        return;
-    }
+// 2,1,5 | 2
 
-    ll maxi = *max_element(begin(A) + 1, end(A));
-    ll mini = *min_element(begin(A), end(A) - 1);
+// 1 2 5
 
-    ll pw = LLONG_MIN;
+// 1 2 6 9  | 3
 
-    for (ll i = 0; i < N - 1; ++i)
-    {
-        pw = max(pw, A[i] - A[i + 1]);
-    }
+// 
 
-    cout << max(max(maxi - A[0], A[N - 1] - mini), pw) << "\n";
+void solve() {
+
 }
 
-int main()
-{
+int main() {
 #ifdef ZAKHAEV26___
     auto start = chrono::high_resolution_clock::now();
 #endif
 
     int tt;
     cin >> tt;
-    while (tt--)
-    {
+    while (tt--) {
         solve();
     }
 

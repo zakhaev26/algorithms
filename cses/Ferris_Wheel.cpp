@@ -70,52 +70,35 @@ void _dbg(const char *names, Args &&...args)
 
 void solve()
 {
-    /*
-5
-6
-1 3 9 11 5 7
-1
-20
-3
-9 99 999
-4
-2 1 8 1
-3
-2 1 5
-
-6
-
-1 3 9 11 5 7
-
-*/
     using ll = long long;
-    ll N;
-    cin >> N;
+    ll N, X;
+    cin >> N >> X;
 
-    vector<ll> A(N);
-
-    for (ll i = 0; i < N; ++i)
+    vector<ll> w(N);
+    for (auto &x : w)
     {
-        cin >> A[i];
+        cin >> x;
     }
 
-    if (N == 1)
+    sort(begin(w), end(w));
+
+    ll l = 0;
+    ll r = N - 1;
+    ll cnt = 0;
+
+    while (l < r)
     {
-        cout << "0\n";
-        return;
+        ll tot = w[l] + w[r];
+        if (tot <= X)
+        {
+            cnt++;
+            l++;
+        }
+
+        r--;
     }
 
-    ll maxi = *max_element(begin(A) + 1, end(A));
-    ll mini = *min_element(begin(A), end(A) - 1);
-
-    ll pw = LLONG_MIN;
-
-    for (ll i = 0; i < N - 1; ++i)
-    {
-        pw = max(pw, A[i] - A[i + 1]);
-    }
-
-    cout << max(max(maxi - A[0], A[N - 1] - mini), pw) << "\n";
+    cout << (N - (cnt * 2)) + cnt << "\n";
 }
 
 int main()
@@ -124,8 +107,8 @@ int main()
     auto start = chrono::high_resolution_clock::now();
 #endif
 
-    int tt;
-    cin >> tt;
+    int tt = 1;
+    // cin >> tt;
     while (tt--)
     {
         solve();

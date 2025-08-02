@@ -70,52 +70,32 @@ void _dbg(const char *names, Args &&...args)
 
 void solve()
 {
-    /*
-5
-6
-1 3 9 11 5 7
-1
-20
-3
-9 99 999
-4
-2 1 8 1
-3
-2 1 5
-
-6
-
-1 3 9 11 5 7
-
-*/
     using ll = long long;
     ll N;
     cin >> N;
 
-    vector<ll> A(N);
-
+    ll cnt = 0;
+    bool inBlock = false;
     for (ll i = 0; i < N; ++i)
     {
-        cin >> A[i];
+        int temp;
+        cin >> temp;
+
+        if (temp != 0)
+        {
+            if (!inBlock)
+            {
+                inBlock = true;
+                cnt++;
+            }
+        }
+        else
+        {
+            inBlock = false;
+        }
     }
 
-    if (N == 1)
-    {
-        cout << "0\n";
-        return;
-    }
-
-    ll maxi = *max_element(begin(A) + 1, end(A));
-    ll mini = *min_element(begin(A), end(A) - 1);
-
-    ll pw = LLONG_MIN;
-
-    for (ll i = 0; i < N - 1; ++i)
-    {
-        pw = max(pw, A[i] - A[i + 1]);
-    }
-
-    cout << max(max(maxi - A[0], A[N - 1] - mini), pw) << "\n";
+    cout << min(cnt, 2LL) << "\n";
 }
 
 int main()
