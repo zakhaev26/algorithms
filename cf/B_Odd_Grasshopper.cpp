@@ -3,7 +3,7 @@
 
 using namespace std;
 
-#ifdef ONLINE_JUDGE1
+#ifdef ZAKHAEV26___
 template <typename T>
 void __print(const T &x) { cerr << x; }
 template <typename T, typename U>
@@ -70,47 +70,29 @@ void _dbg(const char *names, Args &&...args)
 
 void solve()
 {
-    string s, t;
-    cin >> s >> t;
-
-    multiset<char> needs;
-    for (auto &x : t)
-    {
-        needs.insert(x);
-    }
-
-    int needPtr = t.size() - 1;
-    int ptr = s.size() - 1;
-
-    while (needPtr >= 0 && ptr >= 0)
-    {
-        if (t[needPtr] == s[ptr])
-        {
-            needs.erase(needs.find(t[needPtr]));
-            needPtr--;
-        }
-        else if (needs.find(s[ptr]) != needs.end())
-        {
-            cout << "NO\n";
-            return;
-        }
-
-        ptr--;
-    }
-
-    if (needPtr == -1)
-    {
-        cout << "YES\n";
-    }
-    else
-    {
-        cout << "NO\n";
-    }
+    // xo
+    // odd x -> jump right 
+    // even x -> jump left
+    
+    // 0 -> 1   
 }
+
+// A M
+// B N
+
+O(max(MlogM,NlogN) + max(M,N))
+O(max(MlogM,NlogN) + max(M,N))
+
+
+
+
 
 int main()
 {
-#ifdef ONLINE_JUDGE1
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+#ifdef ZAKHAEV26___
     auto start = chrono::high_resolution_clock::now();
 #endif
 
@@ -121,7 +103,7 @@ int main()
         solve();
     }
 
-#ifdef ONLINE_JUDGE1
+#ifdef ZAKHAEV26___
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
     cout << "\n\nExecution time : " << duration.count() << " s" << endl;

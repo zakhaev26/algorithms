@@ -1,9 +1,7 @@
-// Save this as `download_leetcode_submissions.js`
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 
-// 🛡️ SET THIS
 const SESSION_COOKIE = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9";
 const USERNAME = 'soubhikgon';
 const SAVE_DIR = './leetcode/submissions';

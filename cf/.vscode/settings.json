@@ -20,6 +20,8 @@
         "text_encoding": "cpp",
         "regex": "cpp",
         "valarray": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "random": "cpp",
+        "thread": "cpp"
     }
 }

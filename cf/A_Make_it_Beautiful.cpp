@@ -70,44 +70,51 @@ void _dbg(const char *names, Args &&...args)
 
 void solve()
 {
-    using ll = long long;
-    ll N;
-    cin >> N;
-    vector<ll> temp(N);
-    ll maxi = LLONG_MIN;
-    ll mini = LLONG_MAX;
+    // using ll = long long;
+    // ll N;
+    // cin >> N;
+    // vector<ll> temp(N);
+    // ll maxi = LLONG_MIN;
+    // ll mini = LLONG_MAX;
 
-    for (auto &X : temp)
-    {
-        cin >> X;
-        mini = min(mini, X);
-        maxi = max(maxi, X);
-    }
+    // for (auto &X : temp)
+    // {
+    //     cin >> X;
+    //     mini = min(mini, X);
+    //     maxi = max(maxi, X);
+    // }
 
-    if (mini == maxi)
-    {
-        cout << "NO\n";
-        return;
-    }
+    // if (mini == maxi)
+    // {
+    //     cout << "NO\n";
+    //     return;
+    // }
 
-    sort(begin(temp), end(temp));
-    temp.insert(begin(temp), temp.back());
-    temp.pop_back();
-    // 3 3 6 6
-    // 3 3
+    // sort(begin(temp), end(temp));
+    // temp.insert(begin(temp), temp.back());
+    // temp.pop_back();
+    // // 3 3 6 6
+    // // 3 3
 
-    // 1 2 3 4 5
-    // 1 3 2 4
+    // // 1 2 3 4 5
+    // // 1 3 2 4
 
-    // 10 1 11
-    // 10 11 1
+    // // 10 1 11
+    // // 10 11 1
 
-    // 1 10 10
-    // 10 10 1
-    cout << "YES\n";
-    for (auto &X : temp)
-        cout << X << " ";
-    cout << "\n";
+    // // 1 10 10
+    // // 10 10 1
+    // cout << "YES\n";
+    // for (auto &X : temp)
+    //     cout << X << " ";
+    // cout << "\n";
+
+    thread t1(add, 2, 3);
+}
+
+void add(int x, int y)
+{
+    cout << x + y << "\n";
 }
 
 int main()
